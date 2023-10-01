@@ -1,0 +1,10 @@
+{
+    "0": {
+        "name": "Quest NPC",
+        "dialogue": "Did you get my keys yet?"
+    },
+    "1": {
+        "name": "Player",
+        "dialogue": "No still working on that."
+    }
+}

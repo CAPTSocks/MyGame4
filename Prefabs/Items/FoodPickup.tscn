@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl3ia7sa8h7fc"]
+
+[ext_resource type="Script" path="res://Scripts/FoodPickup.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://bvqk80m0vj8k2" path="res://Sprites/Food/Food.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(7.03334, 8.08728)
+
+[node name="FoodPickup" type="Area2D"]
+scale = Vector2(1.4, 1.4)
+script = ExtResource("1")
+healAmountLow = 10
+healAmountMed = 20
+healAmountLarge = 50
+fullHeal = 100
+currHealAmount = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.0608989, 0)
+texture = ExtResource("2")
+hframes = 8
+vframes = 3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

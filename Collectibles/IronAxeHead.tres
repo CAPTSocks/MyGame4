@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleResource" load_steps=3 format=3 uid="uid://hn0n0almf74w"]
+
+[ext_resource type="Texture2D" uid="uid://cylqwp0xnbm3y" path="res://Sprites/Collectibles/fullaxe.png" id="1_0qvq7"]
+[ext_resource type="Script" path="res://Scripts/Resources/CollectibleResource.cs" id="1_3aisy"]
+
+[resource]
+script = ExtResource("1_3aisy")
+id = 0
+collected = false
+name = "Iron Axe Head"
+description = "A pretty Standard axe head."
+scene = "TestLevel"
+image = ExtResource("1_0qvq7")

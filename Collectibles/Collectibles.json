@@ -1,0 +1,23 @@
+{
+ "0": {
+  "Collected": true,
+  "Description": "A pretty Standard axe head.",
+  "FilePath": "res://Sprites/Collectibles/fullaxe.png",
+  "Name": "Iron Axe Head",
+  "Scene": "TestLevel"
+ },
+ "1": {
+  "Collected": true,
+  "Description": "A stronger axe head.",
+  "FilePath": "res://Sprites/Collectibles/fullaxe.png",
+  "Name": "Steel Axe Head",
+  "Scene": "SceneChangeTestLevel"
+ },
+ "2": {
+  "Collected": true,
+  "Description": "An axe head made of solid wood, more a decrotive piece than an actual axe ",
+  "FilePath": "res://Sprites/Collectibles/fullaxe.png",
+  "Name": "Wooden Axe Head",
+  "Scene": "TestLevel"
+ }
+}

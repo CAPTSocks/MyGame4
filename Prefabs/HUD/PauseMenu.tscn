@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://iu11webbndal"]
+
+[ext_resource type="Texture2D" uid="uid://b2j4aobsjty5u" path="res://Sprites/Menus/PauseMenu.png" id="3"]
+[ext_resource type="Script" path="res://Scripts/Menus/PauseMenu.cs" id="6"]
+[ext_resource type="Texture2D" uid="uid://ciluxrorq5jx1" path="res://Sprites/Menus/ConfirmMenu.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://dtudieg7qk543" path="res://Prefabs/HUD/CollectibleMenuBackground.tscn" id="8"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6")
+greyedOutColor = Color(0.537255, 0.537255, 0.537255, 1)
+normalColor = Color(1, 1, 1, 1)
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(-0.513306, -0.513351)
+texture = ExtResource("3")
+
+[node name="Paused" type="Label" parent="BackGround"]
+offset_left = -125.0
+offset_top = -269.0
+offset_right = 127.0
+offset_bottom = -162.0
+text = "Paused"
+
+[node name="ResumeButton" type="Button" parent="BackGround"]
+offset_left = -104.984
+offset_top = -120.0
+offset_right = 105.016
+offset_bottom = -72.0
+text = "Resume"
+
+[node name="RestartButton(temp)" type="Button" parent="BackGround"]
+offset_left = -104.984
+offset_top = -60.0
+offset_right = 105.016
+offset_bottom = -12.0
+text = "Restart"
+
+[node name="OptionsButton" type="Button" parent="BackGround"]
+offset_left = -104.984
+offset_right = 105.016
+offset_bottom = 48.0
+text = "Options"
+
+[node name="CollectiblesButton" type="Button" parent="BackGround"]
+offset_left = -104.984
+offset_top = 60.0
+offset_right = 105.016
+offset_bottom = 108.0
+text = "Collectibles"
+
+[node name="QuitButton" type="Button" parent="BackGround"]
+offset_left = -104.984
+offset_top = 120.0
+offset_right = 105.016
+offset_bottom = 168.001
+text = "Quit"
+
+[node name="ConfirmMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="Background" type="Sprite2D" parent="ConfirmMenu"]
+scale = Vector2(0.895726, 0.895726)
+texture = ExtResource("7")
+
+[node name="AreYouSure" type="Label" parent="ConfirmMenu"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.925
+offset_top = -126.585
+offset_right = 169.075
+offset_bottom = -19.5849
+scale = Vector2(0.907087, 1.14654)
+text = "Are you Sure
+ you want to quit?"
+
+[node name="YesButton" type="Button" parent="ConfirmMenu"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.37
+offset_top = 15.5599
+offset_right = -35.3701
+offset_bottom = 63.5599
+pivot_offset = Vector2(75, 24)
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="ConfirmMenu"]
+custom_minimum_size = Vector2(0.161, 0)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 16.0
+offset_right = 186.0
+offset_bottom = 64.0
+pivot_offset = Vector2(75, 24)
+text = "No"
+
+[node name="CollectiblesMenu" parent="." instance=ExtResource("8")]
+visible = false
+layout_mode = 1
+
+[node name="Button" type="Button" parent="CollectiblesMenu"]
+layout_mode = 0
+offset_left = 203.811
+offset_top = -195.646
+offset_right = 243.811
+offset_bottom = -153.646
+
+[connection signal="pressed" from="BackGround/ResumeButton" to="." method="ResumeButtonPressed"]
+[connection signal="pressed" from="BackGround/RestartButton(temp)" to="." method="RestartButtonPressed"]
+[connection signal="pressed" from="BackGround/OptionsButton" to="." method="OptionsButtonPressed"]
+[connection signal="pressed" from="BackGround/CollectiblesButton" to="." method="CollectiblesButtonPressed"]
+[connection signal="pressed" from="BackGround/QuitButton" to="." method="QuitButtonPressed"]
+[connection signal="pressed" from="ConfirmMenu/YesButton" to="." method="YesButtonPressed"]
+[connection signal="pressed" from="ConfirmMenu/NoButton" to="." method="NoButtonPressed"]
+[connection signal="pressed" from="CollectiblesMenu/Button" to="." method="NoButtonPressed"]

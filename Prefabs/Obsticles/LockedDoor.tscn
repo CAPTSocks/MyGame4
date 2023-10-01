@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/LockedDoor.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/icon.png" type="Texture2D" id=2]
+[ext_resource path="res://Fonts/georgia bold.ttf" type="FontFile" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+size = Vector2( 63.9635, 32.3691 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 88.3893
+
+[sub_resource type="FontFile" id=3]
+font_data = ExtResource( 3 )
+
+[node name="LockedDoor" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color( 0.239216, 0.027451, 0.027451, 1 )
+scale = Vector2( 2, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="DoorText" type="Label" parent="."]
+offset_left = -70.9424
+offset_top = -10.5245
+offset_right = 71.0576
+offset_bottom = 8.47551
+pivot_offset = Vector2( 71, 10 )
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="OnBodyExited"]

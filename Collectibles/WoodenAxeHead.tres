@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleResource" load_steps=3 format=3 uid="uid://82j740bv8mis"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/CollectibleResource.cs" id="1_4djmy"]
+[ext_resource type="Texture2D" uid="uid://cylqwp0xnbm3y" path="res://Sprites/Collectibles/fullaxe.png" id="1_xcelo"]
+
+[resource]
+script = ExtResource("1_4djmy")
+id = 2
+collected = true
+name = "Wooden Axe Head"
+description = "An axe head made of solid wood, more a decrotive piece than an actual axe"
+scene = "TestLevel"
+image = ExtResource("1_xcelo")

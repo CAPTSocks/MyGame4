@@ -1,0 +1,17 @@
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.csproj.AssemblyReference.cache
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.AssemblyInfoInputs.cache
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.AssemblyInfo.cs
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.csproj.CoreCompileInputs.cache
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\bin\Debug\LumberJane.deps.json
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\bin\Debug\LumberJane.runtimeconfig.json
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\bin\Debug\LumberJane.dll
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\bin\Debug\LumberJane.pdb
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.csproj.CopyComplete
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.dll
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\refint\LumberJane.dll
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.pdb
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\LumberJane.genruntimeconfig.cache
+C:\Users\WyatH\Documents\GitHub\MyGame4\.godot\mono\temp\obj\Debug\ref\LumberJane.dll

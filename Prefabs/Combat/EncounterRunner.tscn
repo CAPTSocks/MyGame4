@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/GM/Combat/EncounterRunner.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/icon.png" type="Texture2D" id=2]
+
+[node name="EncounterRunner" type="Node2D"]
+script = ExtResource( 1 )
+enemyPathList = [ "res://Prefabs/Enemies/MeleeEnemy.tscn", "res://Prefabs/Enemies/RangedEnemy.tscn", "res://Prefabs/Enemies/HomingEnemy.tscn" ]
+
+[node name="TopLeftSpawner" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="TopLeftSpawner"]
+modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="TopRightSpawner" type="Node2D" parent="."]
+
+[node name="Sprite2" type="Sprite2D" parent="TopRightSpawner"]
+modulate = Color( 0, 0.345098, 1, 1 )
+texture = ExtResource( 2 )
+
+[node name="BottomLeftSpawner" type="Node2D" parent="."]
+
+[node name="Sprite3" type="Sprite2D" parent="BottomLeftSpawner"]
+modulate = Color( 0.12549, 1, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="BottomRightSpawner" type="Node2D" parent="."]
+
+[node name="Sprite4" type="Sprite2D" parent="BottomRightSpawner"]
+modulate = Color( 0.917647, 0.407843, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="EncounterTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="EncounterTimer" to="." method="EncounterTimerTimeout"]

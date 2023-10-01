@@ -1,0 +1,14 @@
+{
+    "0": {
+        "name": "NPC",
+        "dialogue": "Hello and welcome to my house."
+    },
+    "1": {
+        "name": "Player",
+        "dialogue": "Thanks I dont Like it."
+    },
+    "2": {
+        "name": "NPC",
+        "dialogue": "Oh, ok. :("
+    }
+}

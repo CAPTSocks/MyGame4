@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dchej8an55skk"]
+
+[ext_resource type="Texture2D" uid="uid://d1eh41mjyltoj" path="res://Sprites/TempTree-sheet.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/CanChop.cs" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(92.6366, 124.854)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("2")
+lastFrame = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1")
+vframes = 4
+
+[node name="FadeoutTween" type="Tween" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.47075, -2.04338)
+shape = SubResource("1")

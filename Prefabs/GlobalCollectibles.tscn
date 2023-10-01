@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://fysutbtffmye"]
+
+[ext_resource type="Script" path="res://Scripts/GM/CollectiblesGlobol.cs" id="1"]
+[ext_resource type="Resource" uid="uid://hn0n0almf74w" path="res://Collectibles/IronAxeHead.tres" id="2_mjoiy"]
+[ext_resource type="Resource" uid="uid://ddisb4vvagkeq" path="res://Collectibles/SteelAxeHead.tres" id="3_4c52n"]
+[ext_resource type="Resource" uid="uid://82j740bv8mis" path="res://Collectibles/WoodenAxeHead.tres" id="4_ewty8"]
+
+[node name="GlobalCollectibles" type="Node2D"]
+script = ExtResource("1")
+CollectiblesData = Array[Object]([ExtResource("2_mjoiy"), ExtResource("3_4c52n"), ExtResource("4_ewty8"), null, null, null, null])

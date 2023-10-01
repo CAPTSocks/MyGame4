@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/GM/Combat/EnemyWaves.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/GM/Combat/EnemySpawnInfo.cs" type="Script" id=2]
+
+[node name="Waves" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Wave0" type="Node" parent="."]
+
+[node name="EnemyToSpawnInfo" type="Node" parent="Wave0"]
+script = ExtResource( 2 )
+
+[node name="EnemyToSpawnInfo2" type="Node" parent="Wave0"]
+script = ExtResource( 2 )
+spawner = 1
+
+[node name="EnemyToSpawnInfo3" type="Node" parent="Wave0"]
+script = ExtResource( 2 )
+spawner = 2
+
+[node name="Wave1" type="Node" parent="."]
+
+[node name="EnemyToSpawnInfo" type="Node" parent="Wave1"]
+script = ExtResource( 2 )
+
+[node name="EnemyToSpawnInfo2" type="Node" parent="Wave1"]
+script = ExtResource( 2 )
+enemyType = 1
+spawner = 1
+
+[node name="Wave2" type="Node" parent="."]
+
+[node name="EnemyToSpawnInfo" type="Node" parent="Wave2"]
+script = ExtResource( 2 )
+
+[node name="EnemyToSpawnInfo2" type="Node" parent="Wave2"]
+script = ExtResource( 2 )
+spawner = 1
+
+[node name="EnemyToSpawnInfo3" type="Node" parent="Wave2"]
+script = ExtResource( 2 )
+enemyType = 2
+spawner = 2

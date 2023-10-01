@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfr1e24oqt4sw"]
+
+[ext_resource type="Script" path="res://Scripts/CanChop.cs" id="1"]
+[ext_resource type="Script" path="res://Scripts/FoodSpawner.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://xfrqwvlrmqf6" path="res://Sprites/Food/Crate-Sheet.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(11.7211, 16.3206)
+
+[sub_resource type="Animation" id="Animation_gohtg"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yuqe"]
+_data = {
+"FadeOut": SubResource("Animation_gohtg")
+}
+
+[node name="Crate" type="StaticBody2D" groups=["CanChop"]]
+script = ExtResource("1")
+lastFrame = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8.875, 0.0625)
+texture = ExtResource("3")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.129578, -0.468222)
+shape = SubResource("1")
+
+[node name="FoodSpawner" type="StaticBody2D" parent="."]
+script = ExtResource("2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0yuqe")
+}
+
+[connection signal="animation_started" from="AnimationPlayer" to="FoodSpawner" method="OnFadeoutStarted"]

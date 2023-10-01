@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Prefabs/SceneChanger.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/TempTree.png" type="Texture2D" id=2]
+[ext_resource path="res://Prefabs/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Player/PlayerHealth.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/HUD/PauseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/HUD/DialogueManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Player/HealthBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Items/QuestPickup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Collectibles/Collectible.tscn" type="PackedScene" id=9]
+
+[node name="SceneChangeTestLevel" type="Node2D"]
+
+[node name="SpawnPositions" type="Node2D" parent="."]
+scale = Vector2( 0.187856, 0.187856 )
+
+[node name="TestLevelToSceneChangeLevel" type="Node2D" parent="SpawnPositions"]
+position = Vector2( 88.7842, 1272.81 )
+
+[node name="TestLevelToSceneChangeLevel2" type="Node2D" parent="SpawnPositions"]
+position = Vector2( 3176.5, 1281.32 )
+
+[node name="TempTree" type="Sprite2D" parent="."]
+position = Vector2( 130.825, 98.4034 )
+scale = Vector2( 0.187856, 0.187856 )
+texture = ExtResource( 2 )
+
+[node name="SceneChanger" parent="." instance=ExtResource( 1 )]
+position = Vector2( 140.683, 237.091 )
+scale = Vector2( 1.70786, 1.70786 )
+spawnName = "SceneChangerToTestLevel"
+newScenePath = "Levels/TestLevel.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 506.273, 179.285 )
+
+[node name="Health" parent="Player" instance=ExtResource( 4 )]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="HUD" instance=ExtResource( 7 )]
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource( 5 )]
+visible = false
+
+[node name="DialogueManager" parent="HUD" instance=ExtResource( 6 )]
+visible = false
+
+[node name="QuestItem" parent="." instance=ExtResource( 8 )]
+position = Vector2( 359.578, 384.374 )
+
+[node name="DoorKey" parent="." instance=ExtResource( 8 )]
+position = Vector2( 600.272, 387.966 )
+
+[node name="Collectible" parent="." instance=ExtResource( 9 )]
+position = Vector2( 626.247, 116.621 )
+id = 2
+[connection signal="EnergyChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_EnergyChanged"]
+[connection signal="HealthChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_HealthChanged"]
