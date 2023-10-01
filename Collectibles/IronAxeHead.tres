@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_3aisy")
 id = 0
-collected = false
+collected = true
 name = "Iron Axe Head"
 description = "A pretty Standard axe head."
 scene = "TestLevel"

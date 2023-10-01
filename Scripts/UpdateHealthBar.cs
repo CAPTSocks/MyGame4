@@ -59,7 +59,7 @@ public partial class UpdateHealthBar : Control
       //  underbarTween.Start();
     }
 
-    void _on_Health_EnergyChanged(int currentEnergy)
+    void _on_Health_EnergyChanged(float currentEnergy)
     {
         energyBar.Value = currentEnergy;
 

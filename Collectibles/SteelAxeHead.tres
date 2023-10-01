@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2r0xh")
 id = 1
-collected = false
+collected = true
 name = "Steel Axe Head"
 description = "A stronger axe head."
 scene = "SceneChangeTestLevel"

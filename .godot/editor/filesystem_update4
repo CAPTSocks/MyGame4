@@ -1,11 +1,10 @@
 res://default_env.tres
-res://Collectibles/Collectible.tscn
 res://Levels/TestLevel.tscn
-res://Collectibles/IronAxeHead.tres
-res://Collectibles/SteelAxeHead.tres
+res://Collectibles/WoodenAxeHead.tres
 res://Prefabs/HUD/CollectibleItemPage.tscn
 res://Prefabs/HUD/CollectibleMenuBackground.tscn
 res://Prefabs/GlobalCollectibles.tscn
+res://Collectibles/Collectible.tscn
 res://Scripts/ArrowProjectile.cs
 res://Scripts/CanChop.cs
 res://Scripts/DartTrap.cs
@@ -45,3 +44,8 @@ res://Scripts/RaycastRotator.cs
 res://Scripts/Resources/CollectibleResource.cs
 res://Scripts/Resources/DialogueResource.cs
 res://Scripts/UpdateHealthBar.cs
+res://Collectibles/IronAxeHead.tres
+res://Collectibles/SteelAxeHead.tres
+res://Prefabs/Player/Player.tscn
+res://Prefabs/Player/HealthBar.tscn
+res://Prefabs/Player/PlayerHealth.tscn

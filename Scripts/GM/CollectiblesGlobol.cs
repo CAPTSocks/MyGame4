@@ -105,11 +105,11 @@ public partial class CollectiblesGlobol : Node
       //  data2["Collected"] = true;
        // data[collectibleID.ToString()] = (Godot.Collections.Dictionary)data2;
         GD.Print(CollectiblesData[collectibleID].Name + " Collected");
-        CollectiblesData[collectibleID].Collected = true;
         menuAccess.UpdateMenu(CollectiblesData[collectibleID]);
         UpdateCollectedArray(collectibleID);
+        CollectiblesData[collectibleID].CollectandSave();
         //Save Json File
-        //     var f = new File();
+        //     var f = new File();co
         //     f.Open(filePath, File.ModeFlags.Write);
         //    f.StoreString(JSON.Print(data, " ", true));
         //     f.Close();

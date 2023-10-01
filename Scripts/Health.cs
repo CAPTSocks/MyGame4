@@ -9,8 +9,8 @@ public partial class Health : Node
 
     [Export] private float energyReginRate = .1f, currentEnergy = 60;
 
-    [Signal] public delegate void HealthChangedEventHandler();
-    [Signal] public delegate void EnergyChangedEventHandler();
+    [Signal] public delegate void HealthChangedEventHandler(int currentHealthEvt);
+    [Signal] public delegate void EnergyChangedEventHandler(float currentEnergyEvt);
     [Signal] public delegate void PlayerDeadEventHandler();
     public bool isDead = false, CanRegin = true;
 
@@ -55,7 +55,8 @@ public partial class Health : Node
         if (!isDead && CanRegin != false)
         {
             currentEnergy = Mathf.MoveToward(currentEnergy, maxEnergy, energyReginRate);
-            EmitSignal(nameof(EnergyChanged), currentEnergy);
+            EmitSignal(SignalName.EnergyChanged, currentEnergy);
+           // EmitSignal(nameof(EnergyChanged), currentEnergy);
         }
     }
 
@@ -69,14 +70,14 @@ public partial class Health : Node
                 {
                     currentEnergy += energyAmount;
                     Mathf.Clamp(currentEnergy, 0, maxEnergy);
-                    EmitSignal(nameof(EnergyChanged), currentEnergy);
+                    EmitSignal(SignalName.EnergyChanged, currentEnergy);
                 }
             }
             else
             {
                 currentEnergy += energyAmount;
                 Mathf.Clamp(currentEnergy, 0, maxEnergy);
-                EmitSignal(nameof(EnergyChanged), currentEnergy);
+                EmitSignal(SignalName.EnergyChanged, currentEnergy);
             }
         }
     }
@@ -94,12 +95,12 @@ public partial class Health : Node
                 return;
             }
 
-            EmitSignal(nameof(HealthChanged), currentHealth);
+            EmitSignal(SignalName.HealthChanged, currentHealth);
 
             if (currentHealth == 0)
             {
                 isDead = true;
-                EmitSignal(nameof(PlayerDead));
+                EmitSignal(SignalName.PlayerDead);
             }
         }
     }

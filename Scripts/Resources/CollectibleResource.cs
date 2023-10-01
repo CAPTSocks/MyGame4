@@ -19,9 +19,17 @@ public partial class CollectibleResource : Resource
 
     //properties
     public int ID { get {return id;} }
-    public bool Collected { get {return collected;} set {id = ID;} }
+    public bool Collected { get {return collected;}}
     public string Name { get {return name;} }
     public string Description { get {return description;} }
     public string Scene { get {return scene;} }
     public Texture2D Image { get {return image;}  }
+
+    public void CollectandSave()
+    {
+        collected = true;
+        GD.Print("Trying to save");
+        GD.Print(this.ResourcePath);
+        ResourceSaver.Save(this, this.ResourcePath);
+    }
 }

@@ -1,7 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://cikgtnng8s3ul"]
+[gd_scene load_steps=55 format=3 uid="uid://cikgtnng8s3ul"]
 
 [ext_resource type="PackedScene" uid="uid://dawayf21vi3cj" path="res://Prefabs/Player/Player.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://Prefabs/Player/PlayerHealth.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c2a324mncxhqy" path="res://Prefabs/Player/PlayerHealth.tscn" id="2"]
 [ext_resource type="Script" path="res://Scripts/HUD.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://b1crhuj0212vj" path="res://Sprites/HealthBar/BackGround.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="6"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterStarter.tscn" id="29"]
 [ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterRunner.tscn" id="30"]
 [ext_resource type="Script" path="res://Scripts/GM/Combat/EnemySpawnInfo.cs" id="31"]
+[ext_resource type="PackedScene" path="res://Prefabs/Enemies/MeleeEnemy.tscn" id="31_i4k5x"]
 [ext_resource type="PackedScene" uid="uid://bvspmu7yryf1y" path="res://Prefabs/Enemies/AvoidEnemy.tscn" id="32"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a6jyl"]
@@ -564,7 +565,7 @@ size = Vector2(75.2556, 10)
 [node name="TestScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(647.804, -170.216)
+position = Vector2(606, 284)
 zoom = Vector2(0.6, 0.6)
 position_smoothing_speed = 3.0
 drag_left_margin = 0.3
@@ -637,7 +638,7 @@ position = Vector2(876.796, 210.245)
 scale = Vector2(0.895544, 0.942857)
 
 [node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(647.804, -170.216)
+position = Vector2(606, 284)
 
 [node name="Health" parent="Player" instance=ExtResource("2")]
 
@@ -891,10 +892,16 @@ detectionRange = 100.0
 attackRange = 260.0
 attackRate = 5.0
 
+[node name="MeleeEnemy" parent="." instance=ExtResource("31_i4k5x")]
+position = Vector2(548, -209)
+
 [connection signal="body_entered" from="DialogueNPC/InteractebleArea" to="DialogueNPC/Dialogue" method="OnBodyEntered"]
 [connection signal="body_exited" from="DialogueNPC/InteractebleArea" to="DialogueNPC/Dialogue" method="OnBodyExited"]
 [connection signal="body_entered" from="QuestNPC/InteractebleArea" to="QuestNPC/QuestDialogue" method="OnBodyEntered"]
 [connection signal="body_exited" from="QuestNPC/InteractebleArea" to="QuestNPC/QuestDialogue" method="OnBodyExited"]
+[connection signal="EnergyChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_EnergyChanged"]
+[connection signal="HealthChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_HealthChanged"]
+[connection signal="PlayerDead" from="Player/Health" to="Player" method="_on_Health_PlayerDead"]
 [connection signal="pressed" from="HUD/DeathScreen/RestartButton" to="GM" method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="HUD/DeathScreen/ExitButton" to="GM" method="_on_ExitButton_pressed"]
 [connection signal="body_entered" from="Traps/TestTraps/TrapActivator/Area2D" to="Traps/TestTraps/DartTrap" method="TrapActivated"]
