@@ -99,6 +99,7 @@ public partial class Health : Node
 
             if (currentHealth == 0)
             {
+                GD.Print("Player has died");
                 isDead = true;
                 EmitSignal(SignalName.PlayerDead);
             }

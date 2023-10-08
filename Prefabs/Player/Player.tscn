@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dawayf21vi3cj"]
 
 [ext_resource type="Texture2D" uid="uid://7w2j3p7vh3gv" path="res://Sprites/Player.png" id="1"]
-[ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="2"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.cs" id="1_eco8x"]
 [ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -278,7 +278,7 @@ size = Vector2(6.67245, 13.3758)
 position = Vector2(500, 300)
 collision_mask = 3
 motion_mode = 1
-script = ExtResource("2")
+script = ExtResource("1_eco8x")
 dodgeLength = 0.2
 attackTime = 0.25
 attackCoolDown = 0.15

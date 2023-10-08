@@ -13,6 +13,7 @@ public partial class MeleeEnemy : BaseEnemy
         target = GetParent().GetNode<CharacterBody2D>("Player");
         targetHealthAccess = target.GetNode<Health>("Health");
         attackTimer = GetNode<Timer>("AttackTimer");
+        
     }
 
     void _on_AttackTimer_timeout()

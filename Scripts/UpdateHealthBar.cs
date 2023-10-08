@@ -16,7 +16,7 @@ public partial class UpdateHealthBar : Control
         healthBar = GetNode<TextureProgressBar>("HealthBar");
         underBar = GetNode<TextureProgressBar>("UnderBar");
         energyBar = GetNode<TextureProgressBar>("EnergyBar");
-        underbarTween = GetNode<Tween>("TweenUnderBar");
+        //GetNode<Tween>("TweenUnderBar");
     }
 
     ///Sets the length of the health bar directly. Only call at the start of the scene. 
@@ -29,7 +29,10 @@ public partial class UpdateHealthBar : Control
     private void _on_Health_HealthChanged(int currentHealth)
     {
         healthBar.Value = currentHealth;
-
+        if (underbarTween != null)
+        {
+            underbarTween.Kill();
+        }
         switch (healthBar.Value)
         {
             case var expression when healthBar.Value <= healthBar.MaxValue / 4:
@@ -46,16 +49,10 @@ public partial class UpdateHealthBar : Control
                 break;
         }
 
-
-
-        // if (healthBar.Value <= healthBar.MaxValue / 2)
-        // {
-        //     healthBar.TintProgress = halfHealth;
-        // }
-        // else if ()
-
         //TODO:Fix Tween
-     //   underbarTween.InterpolateProperty(underBar, "value", underBar.Value, healthBar.Value, .5f, Tween.TransitionType.Linear, Tween.EaseType.InOut);
+        underbarTween = CreateTween().BindNode(this).SetEase(Tween.EaseType.InOut);
+        underbarTween.TweenInterval(1.0f);
+         underbarTween.TweenProperty(underBar, "value", healthBar.Value, .5f);
       //  underbarTween.Start();
     }
 

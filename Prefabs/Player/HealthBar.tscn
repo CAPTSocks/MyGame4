@@ -27,16 +27,6 @@ white = Color(1, 1, 1, 1)
 position = Vector2(207.054, 74.498)
 texture = ExtResource("1")
 
-[node name="TweenUnderBar" type="Tween" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-editor_description = ""
-script = null
-
 [node name="UnderBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 14.9605

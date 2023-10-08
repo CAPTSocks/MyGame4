@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterStarter.tscn" id="29"]
 [ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterRunner.tscn" id="30"]
 [ext_resource type="Script" path="res://Scripts/GM/Combat/EnemySpawnInfo.cs" id="31"]
-[ext_resource type="PackedScene" path="res://Prefabs/Enemies/MeleeEnemy.tscn" id="31_i4k5x"]
+[ext_resource type="PackedScene" uid="uid://cnkwjibsfuy11" path="res://Prefabs/Enemies/MeleeEnemy.tscn" id="31_i4k5x"]
 [ext_resource type="PackedScene" uid="uid://bvspmu7yryf1y" path="res://Prefabs/Enemies/AvoidEnemy.tscn" id="32"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a6jyl"]
@@ -698,7 +698,6 @@ value = 100.0
 texture_progress = ExtResource("24")
 
 [node name="DeathScreen" type="ColorRect" parent="HUD"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
@@ -708,19 +707,22 @@ anchor_bottom = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/DeathScreen"]
 self_modulate = Color(0.729412, 0.027451, 0.027451, 1)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -365.0
-offset_top = -200.0
-offset_right = 365.0
-scale = Vector2(1.23616, 1)
-pivot_offset = Vector2(365, 100)
+offset_left = -53.8296
+offset_top = -150.0
+offset_right = 46.1704
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.809)
+pivot_offset = Vector2(50, 12)
 text = "You're Dead"
 scroll_active = false
-tab_size = 8
 meta_underlined = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/DeathScreen"]
@@ -729,7 +731,8 @@ libraries = {
 }
 
 [node name="RestartButton" type="Button" parent="HUD/DeathScreen"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -737,6 +740,8 @@ anchor_bottom = 0.5
 offset_left = -75.0
 offset_right = 75.0
 offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Restart"
 
 [node name="ExitButton" type="Button" parent="HUD/DeathScreen"]
@@ -756,6 +761,7 @@ layout_mode = 3
 anchors_preset = 7
 grow_horizontal = 2
 grow_vertical = 0
+grey = Color(0.419608, 0.419608, 0.419608, 0.462745)
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("14")]
 process_mode = 3
@@ -901,7 +907,7 @@ position = Vector2(548, -209)
 [connection signal="body_exited" from="QuestNPC/InteractebleArea" to="QuestNPC/QuestDialogue" method="OnBodyExited"]
 [connection signal="EnergyChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_EnergyChanged"]
 [connection signal="HealthChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_HealthChanged"]
-[connection signal="PlayerDead" from="Player/Health" to="Player" method="_on_Health_PlayerDead"]
+[connection signal="PlayerDead" from="Player/Health" to="HUD" method="_on_Health_PlayerDead"]
 [connection signal="pressed" from="HUD/DeathScreen/RestartButton" to="GM" method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="HUD/DeathScreen/ExitButton" to="GM" method="_on_ExitButton_pressed"]
 [connection signal="body_entered" from="Traps/TestTraps/TrapActivator/Area2D" to="Traps/TestTraps/DartTrap" method="TrapActivated"]
