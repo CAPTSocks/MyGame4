@@ -11,7 +11,7 @@ public partial class FoodSpawner : StaticBody2D
 
     // }
 
-    private void OnFadeOutStarted()
+    private void OnFadeOutStarted(StringName animName)
     {
         var rand = new Random();
         var randNum = rand.Next(1, 11);
@@ -25,7 +25,7 @@ public partial class FoodSpawner : StaticBody2D
     public void SpawnFood()
     {
         var f = food.Instantiate<FoodPickup>();
-        f.Spawn(this.GlobalPosition);
+        f.Spawn(this.Position);
         AddChild(f);
 
         GD.Print("Spawning Food");

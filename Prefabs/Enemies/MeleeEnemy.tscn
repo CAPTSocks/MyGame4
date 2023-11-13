@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Enemies/MeleeEnemy.cs" id="1"]
 [ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="2"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(30.5041, 31.9228)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkgdx"]
+radius = 31.5
+height = 67.0
 
 [node name="MeleeEnemy" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1")
@@ -14,18 +15,21 @@ attackRange = 80.0
 attackRate = 0.75
 targetDistance = 200.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("1")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499999, 0.5)
+shape = SubResource("CapsuleShape2D_rkgdx")
 
 [node name="AttackTimer" type="Timer" parent="."]
 
 [node name="Line" type="Line2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 20.0
+path_postprocessing = 1
+avoidance_enabled = true
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

@@ -22,7 +22,7 @@ public partial class AvoidEnemy : BaseEnemy
 
     public override void _Ready()
     {
-        nav2D = GetParent().GetNode<NavigationAgent2D>("Navigation2D");
+       // nav2D = GetParent().GetNode<NavigationAgent2D>("Navigation2D");
         target = GetParent().GetNode<CharacterBody2D>("Player");
         targetHealthAccess = target.GetNode<Health>("Health");
         attackTimer = GetNode<Timer>("AttackTimer");

@@ -22,6 +22,7 @@ public partial class CollectibleMenu : Control
         var page2 = GetNode<CollectiblesPage>("CollectiblesMenu/Control/CollectibleItemPage2");
         var page3 = GetNode<CollectiblesPage>("CollectiblesMenu/Control/CollectibleItemPage3");
 
+        if (IsInstanceValid(page0))
         collectiblePages[0] = page0;
         collectiblePages[1] = page1;
         collectiblePages[2] = page2;

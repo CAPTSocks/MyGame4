@@ -42,6 +42,8 @@ public partial class PauseMenu : Control
 
     void RestartButtonPressed()
     {
+        var colGlobol = (CollectiblesGlobol)GetNode("/root/GlobalCollectibles");
+        colGlobol.SceneChanged = true; 
         GetTree().Paused = false;
         GetTree().ReloadCurrentScene();
     }

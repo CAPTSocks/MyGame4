@@ -1,10 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dchej8an55skk"]
+[gd_scene load_steps=6 format=3 uid="uid://dchej8an55skk"]
 
 [ext_resource type="Texture2D" uid="uid://d1eh41mjyltoj" path="res://Sprites/TempTree-sheet.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/CanChop.cs" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(92.6366, 124.854)
+size = Vector2(63, 124.854)
+
+[sub_resource type="Animation" id="Animation_o42rb"]
+resource_name = "TreeFadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pyq3o"]
+_data = {
+"TreeFadeOut": SubResource("Animation_o42rb")
+}
 
 [node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("2")
@@ -15,16 +35,11 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1")
 vframes = 4
 
-[node name="FadeoutTween" type="Tween" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-editor_description = ""
-script = null
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.47075, -2.04338)
+position = Vector2(10.5, 61)
 shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pyq3o")
+}

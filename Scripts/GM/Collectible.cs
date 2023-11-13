@@ -17,6 +17,7 @@ public partial class Collectible : Node
     public override void _Ready()
     {
         //CheckIfCollected();
+        
         colGlobol = (CollectiblesGlobol)GetNode("/root/GlobalCollectibles");
 
         collected = colGlobol.CheckIfCollected(id);

@@ -9,7 +9,7 @@ public partial class CanChop : Node2D
     [Export] private int lastFrame;
     private int currentFrame = 0;
     private bool canBeChopped = true;
-    private Tween fadeoutTween;
+    private AnimationPlayer anim;
     private Sprite2D sprite;
     
     private CollisionShape2D col;
@@ -17,8 +17,8 @@ public partial class CanChop : Node2D
     public override void _Ready()
     {
         sprite = GetNode<Sprite2D>("Sprite2D");
-        fadeoutTween = GetNode<Tween>("FadeoutTween");
         col = GetNode<CollisionShape2D>("CollisionShape2D");
+        anim = GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
     public void Chopped()
@@ -42,25 +42,12 @@ public partial class CanChop : Node2D
         col.Disabled = true;
     }
 
-    //TODO: Fix fadeout with new tween or animation
     private void ChoppedDown()
     {
-        //fadeoutTween.InterpolateProperty(sprite, "modulate", new Color(1,1,1,1), new Color(1,1,1,0),
-        //                                     .5f, Tween.TransitionType.Linear, Tween.EaseType.OutIn);
-        //fadeoutTween.Start();
-        //this.QueueFree();
+        var animations = anim.GetAnimationList();
+        if (animations.Length > 0)
+        {
+            anim.Play(animations[0]);
+        }
     }
-
- //   private void OnFadeoutTweenCompleted(Godot.Object obj, NodePath key)
-  //  {
-        //this.QueueFree();
-   // }
-
-
-
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(double delta)
-    //  {
-    //      
-    //  }
 }

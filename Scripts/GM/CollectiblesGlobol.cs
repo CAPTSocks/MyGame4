@@ -25,6 +25,8 @@ public partial class CollectiblesGlobol : Node
     private Collectible[] collectibles = new Collectible[7];
     private String[] names;
 
+    public bool SceneChanged = false;
+
     // Link: https://godotforums.org/discussion/19326/parsing-json-with-c
     // Other Link: https://godotengine.org/qa/29925/how-to-modify-a-json-file
 
@@ -85,8 +87,17 @@ public partial class CollectiblesGlobol : Node
         {
             if (CollectiblesData[collectibleID].Collected)
             {
+                if (SceneChanged)
+                {
+                    menuAccess = null;
+                    SceneChanged = false;
+                    menuAccess = GetCollectibleMenu();
+                    GD.Print("Is this being called");
+                }
+
                 menuAccess.UpdateMenu(CollectiblesData[collectibleID]);
                 return true;
+
             }
             return false;
         }
@@ -97,13 +108,13 @@ public partial class CollectiblesGlobol : Node
     //to the update collectible array
     public void CollectCollectible(int collectibleID)
     {
-      //  var data2 = (Godot.Collections.Dictionary)data[collectibleID.ToString()];
+        //  var data2 = (Godot.Collections.Dictionary)data[collectibleID.ToString()];
 
-     //   GD.Print(data2["Collected"]);
+        //   GD.Print(data2["Collected"]);
 
         //Change Json file
-      //  data2["Collected"] = true;
-       // data[collectibleID.ToString()] = (Godot.Collections.Dictionary)data2;
+        //  data2["Collected"] = true;
+        // data[collectibleID.ToString()] = (Godot.Collections.Dictionary)data2;
         GD.Print(CollectiblesData[collectibleID].Name + " Collected");
         menuAccess.UpdateMenu(CollectiblesData[collectibleID]);
         UpdateCollectedArray(collectibleID);
@@ -122,22 +133,5 @@ public partial class CollectiblesGlobol : Node
     public void UpdateCollectedArray(int ID)
     {
         menuAccess.UpdateMenu(CollectiblesData[ID]);
-        //Get the collectible
-        // var itemData = (Godot.Collections.Dictionary)data[ID.ToString()];
-        // if ((bool)itemData["Collected"] == true)
-        // {
-        //     //Create new collectible item from the json
-        //     Collectible collect = new Collectible();
-        //     collect.id = ID;
-        //     collect.name = (string)itemData["Name"];
-        //     collect.description = (string)itemData["Description"];
-        //     collect.level = (string)itemData["Scene"];
-        //     collect.imagePath = (string)itemData["FilePath"];
-
-        //     //update the array and send it to the menu
-        //     collectibles[ID] = collect;
-        //  menuAccess.UpdateMenu(ID, collectibles);
-
-        //CollectiblesData[ID].ID = ID;
     }
 }

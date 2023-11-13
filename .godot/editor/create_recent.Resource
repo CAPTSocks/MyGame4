@@ -1,1 +1,4 @@
+DialogueResource
+DialogueContainer
+Resource
 CollectibleResource

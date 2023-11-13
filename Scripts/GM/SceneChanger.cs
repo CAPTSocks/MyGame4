@@ -75,6 +75,10 @@ public partial class SceneChanger : Node
         //Save the players inventory between scenes
         var pItems = SavePlayersInventory(body);
 
+        //Tell the CollectiblesGlobal that the sceen has changed
+        var colGlobol = (CollectiblesGlobol)GetNode("/root/GlobalCollectibles");
+        colGlobol.SceneChanged = true; 
+
         if (glob != null)
         {
             //Start the new scene

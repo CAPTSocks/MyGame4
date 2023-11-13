@@ -16,6 +16,7 @@ public partial class GM : Node2D
     void _on_RestartButton_pressed()
     {
         RestartLevel();
+        GD.Print("Restart Level!!!!");
     }
 
     void _on_ExitButton_pressed()
@@ -25,6 +26,9 @@ public partial class GM : Node2D
 
     void RestartLevel()
     {
+        var colGlobol = (CollectiblesGlobol)GetNode("/root/GlobalCollectibles");
+        colGlobol.SceneChanged = true; 
+        
         GetTree().ReloadCurrentScene();
     }
 

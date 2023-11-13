@@ -1,19 +1,25 @@
 using Godot;
+using Microsoft.VisualBasic;
 using System;
 
 public partial class MeleeEnemy : BaseEnemy
 {
 
-    private NavigationAgent2D nav2D;
+    private NavigationAgent2D agent;
+    private TileMap map; 
     private Vector2[] path;
+    private bool canMove = false;
 
     public override void _Ready()
     {
-        nav2D = GetParent().GetNode<NavigationAgent2D>("Navigation2D");
+        map = GetParent().GetNode<TileMap>("TileMap");
+        agent = GetNode<NavigationAgent2D>("NavigationAgent2D");
         target = GetParent().GetNode<CharacterBody2D>("Player");
         targetHealthAccess = target.GetNode<Health>("Health");
         attackTimer = GetNode<Timer>("AttackTimer");
-        
+        agent.SetNavigationMap(map.GetNavigationMap(0));
+
+        Callable.From(ActorSetup).CallDeferred();
     }
 
     void _on_AttackTimer_timeout()
@@ -66,6 +72,8 @@ public partial class MeleeEnemy : BaseEnemy
 
             // velocity = (target.GlobalPosition - this.GlobalPosition).Normalized();
             // MoveAndCollide(velocity * speed * delta);
+
+           
         }
 
         if (attackRange >= targetDistance && attacking)
@@ -74,5 +82,23 @@ public partial class MeleeEnemy : BaseEnemy
             attacking = false;
             attackTimer.Start(attackRate);
         }
+        if (canMove)
+    {
+        agent.TargetPosition = target.GlobalPosition;
+         var curPos = GlobalPosition;
+            var newPos = agent.GetNextPathPosition();
+            var velocity = (newPos - curPos).Normalized();
+            Velocity = velocity * speed;
+            MoveAndSlide(); 
+    }
+    }
+
+        private async void ActorSetup()
+    {
+        // Wait for the first physics frame so the NavigationServer can sync.
+        await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
+
+        // Now that the navigation map is no longer empty, set the movement target.
+        canMove = true;
     }
 }

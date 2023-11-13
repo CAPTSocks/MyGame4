@@ -1,9 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://iu11webbndal"]
+[gd_scene load_steps=23 format=3 uid="uid://iu11webbndal"]
 
 [ext_resource type="Texture2D" uid="uid://b2j4aobsjty5u" path="res://Sprites/Menus/PauseMenu.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dy6qhtbcy2ang" path="res://Sprites/Menus/Button/ButtonNorma.png" id="3_f3dr0"]
+[ext_resource type="Texture2D" uid="uid://catx8b08jxgx5" path="res://Sprites/Menus/Button/ButtonHover.png" id="4_xnk8s"]
+[ext_resource type="Texture2D" uid="uid://dbbyfjdso4avb" path="res://Sprites/Menus/Button/ButtonClicked.png" id="5_k5hym"]
 [ext_resource type="Script" path="res://Scripts/Menus/PauseMenu.cs" id="6"]
 [ext_resource type="Texture2D" uid="uid://ciluxrorq5jx1" path="res://Sprites/Menus/ConfirmMenu.png" id="7"]
 [ext_resource type="PackedScene" uid="uid://dtudieg7qk543" path="res://Prefabs/HUD/CollectibleMenuBackground.tscn" id="8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rmxxy"]
+texture = ExtResource("3_f3dr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cy7d"]
+texture = ExtResource("4_xnk8s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnxmv"]
+texture = ExtResource("5_k5hym")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hwcke"]
+texture = ExtResource("3_f3dr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xarid"]
+texture = ExtResource("4_xnk8s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_desfn"]
+texture = ExtResource("5_k5hym")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxo2u"]
+texture = ExtResource("3_f3dr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_maaxy"]
+texture = ExtResource("4_xnk8s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l74hv"]
+texture = ExtResource("5_k5hym")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4qnce"]
+texture = ExtResource("3_f3dr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6l1h"]
+texture = ExtResource("4_xnk8s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k743g"]
+texture = ExtResource("5_k5hym")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytixl"]
+texture = ExtResource("3_f3dr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7a35"]
+texture = ExtResource("4_xnk8s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmqgt"]
+texture = ExtResource("5_k5hym")
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -31,13 +79,19 @@ offset_left = -125.0
 offset_top = -269.0
 offset_right = 127.0
 offset_bottom = -162.0
+theme_override_font_sizes/font_size = 45
 text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="BackGround"]
 offset_left = -104.984
 offset_top = -120.0
 offset_right = 105.016
 offset_bottom = -72.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rmxxy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6cy7d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wnxmv")
 text = "Resume"
 
 [node name="RestartButton(temp)" type="Button" parent="BackGround"]
@@ -45,12 +99,18 @@ offset_left = -104.984
 offset_top = -60.0
 offset_right = 105.016
 offset_bottom = -12.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_hwcke")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xarid")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_desfn")
 text = "Restart"
 
 [node name="OptionsButton" type="Button" parent="BackGround"]
 offset_left = -104.984
 offset_right = 105.016
 offset_bottom = 48.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_yxo2u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_maaxy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l74hv")
 text = "Options"
 
 [node name="CollectiblesButton" type="Button" parent="BackGround"]
@@ -58,6 +118,9 @@ offset_left = -104.984
 offset_top = 60.0
 offset_right = 105.016
 offset_bottom = 108.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4qnce")
+theme_override_styles/hover = SubResource("StyleBoxTexture_y6l1h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k743g")
 text = "Collectibles"
 
 [node name="QuitButton" type="Button" parent="BackGround"]
@@ -65,6 +128,9 @@ offset_left = -104.984
 offset_top = 120.0
 offset_right = 105.016
 offset_bottom = 168.001
+theme_override_styles/normal = SubResource("StyleBoxTexture_ytixl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u7a35")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xmqgt")
 text = "Quit"
 
 [node name="ConfirmMenu" type="Control" parent="."]
