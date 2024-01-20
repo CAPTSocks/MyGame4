@@ -8,4 +8,8 @@ public partial class DialogueContainer : Resource
 {
     [Export]
     private Array<DialogueResource> dialogues = new Array<DialogueResource>(); 
+
+     //properties
+
+     public Array<DialogueResource> Dialogues { get {return dialogues;}  }
 }

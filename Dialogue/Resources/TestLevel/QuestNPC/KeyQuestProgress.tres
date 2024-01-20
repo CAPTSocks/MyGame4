@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="QuestProgress" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/QuestDialogue/QuestProgress.cs" id="1_ueklw"]
+
+[resource]
+script = ExtResource("1_ueklw")
+questProgressNum = 3

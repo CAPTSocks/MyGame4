@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogueContainer" load_steps=6 format=3 uid="uid://mrefnaqrc5wg"]
+
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="1_3u58f"]
+[ext_resource type="Texture2D" uid="uid://faoqi62ptimf" path="res://Sprites/Dialogue/TempPortrait.png" id="2_w4i6k"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueResource.cs" id="3_mttba"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueContainer.cs" id="4_5ouk4"]
+
+[sub_resource type="Resource" id="Resource_6sm6m"]
+script = ExtResource("3_mttba")
+speakerName = "Quest Giver"
+dialogue = "Im still waiting on that key."
+leftSpeakerImage = ExtResource("1_3u58f")
+rightSpeakerImage = ExtResource("2_w4i6k")
+leftSpeaking = true
+
+[resource]
+script = ExtResource("4_5ouk4")
+dialogues = [SubResource("Resource_6sm6m")]

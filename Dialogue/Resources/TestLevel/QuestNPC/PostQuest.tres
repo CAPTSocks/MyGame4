@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogueContainer" load_steps=6 format=3 uid="uid://c7ju4jixsvfpx"]
+
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="1_guaya"]
+[ext_resource type="Texture2D" uid="uid://faoqi62ptimf" path="res://Sprites/Dialogue/TempPortrait.png" id="2_vyrku"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueResource.cs" id="3_dyfq3"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueContainer.cs" id="4_l2fgl"]
+
+[sub_resource type="Resource" id="Resource_6sm6m"]
+script = ExtResource("3_dyfq3")
+speakerName = "Quest Giver"
+dialogue = "Thanks again for bringing me that key."
+leftSpeakerImage = ExtResource("1_guaya")
+rightSpeakerImage = ExtResource("2_vyrku")
+leftSpeaking = true
+
+[resource]
+script = ExtResource("4_l2fgl")
+dialogues = [SubResource("Resource_6sm6m")]

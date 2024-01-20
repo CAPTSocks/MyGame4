@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx2gcj6kwx6va"]
+
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="1_1aavg"]
+[ext_resource type="PackedScene" uid="uid://ca4sut17bqwb6" path="res://Prefabs/Dialogue/DialogueNode2.tscn" id="2_gn46p"]
+
+[sub_resource type="CircleShape2D" id="8"]
+radius = 84.237
+
+[node name="DialogueNPC" type="Node2D"]
+position = Vector2(697.168, 477.274)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.180392, 1)
+texture = ExtResource("1_1aavg")
+
+[node name="InteractebleArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractebleArea"]
+position = Vector2(1.39667, 0)
+shape = SubResource("8")
+
+[node name="NewDialogueNode" parent="." instance=ExtResource("2_gn46p")]
+
+[connection signal="body_entered" from="InteractebleArea" to="NewDialogueNode" method="OnBodyEntered"]
+[connection signal="body_exited" from="InteractebleArea" to="NewDialogueNode" method="OnBodyExited"]

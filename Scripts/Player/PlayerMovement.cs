@@ -39,7 +39,7 @@ public partial class PlayerMovement : CharacterBody2D
     private void Dodge()
     {
 
-        canMove = false;
+        
         healthAccess.useEnergy(-dodgeCost);
         Velocity *= dodgeSpeed;
         dodgeVelocity = Velocity;

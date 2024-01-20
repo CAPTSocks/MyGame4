@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueContainer" load_steps=8 format=3 uid="uid://dn8atwhw0nmrk"]
+
+[ext_resource type="Texture2D" uid="uid://faoqi62ptimf" path="res://Sprites/Dialogue/TempPortrait.png" id="1_u8fbv"]
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="2_b76g4"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueResource.cs" id="3_03fvj"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueContainer.cs" id="4_cmqop"]
+
+[sub_resource type="Resource" id="Resource_ukclf"]
+resource_name = "Hello"
+script = ExtResource("3_03fvj")
+speakerName = "Frank"
+dialogue = "Hello I am frank"
+leftSpeakerImage = ExtResource("1_u8fbv")
+rightSpeakerImage = ExtResource("2_b76g4")
+leftSpeaking = true
+
+[sub_resource type="Resource" id="Resource_sqxqi"]
+resource_name = "Goodbye"
+script = ExtResource("3_03fvj")
+speakerName = "Player"
+dialogue = "Hello I am player"
+leftSpeakerImage = ExtResource("1_u8fbv")
+rightSpeakerImage = ExtResource("2_b76g4")
+leftSpeaking = false
+
+[sub_resource type="Resource" id="Resource_qmbd4"]
+resource_name = "This is the end for me"
+script = ExtResource("3_03fvj")
+speakerName = "Frank"
+dialogue = "Ok im done talking to you."
+leftSpeakerImage = ExtResource("1_u8fbv")
+rightSpeakerImage = ExtResource("2_b76g4")
+leftSpeaking = true
+
+[resource]
+script = ExtResource("4_cmqop")
+dialogues = [SubResource("Resource_ukclf"), SubResource("Resource_sqxqi"), SubResource("Resource_qmbd4")]

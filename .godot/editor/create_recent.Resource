@@ -1,4 +1,5 @@
-DialogueResource
-DialogueContainer
+QuestProgress
 Resource
+DialogueContainer
+DialogueResource
 CollectibleResource

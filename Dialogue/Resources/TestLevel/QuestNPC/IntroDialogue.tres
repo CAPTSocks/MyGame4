@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="DialogueContainer" load_steps=7 format=3 uid="uid://m5u1w0nuvfmu"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueContainer.cs" id="1_5on3o"]
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="1_6gsi8"]
+[ext_resource type="Texture2D" uid="uid://faoqi62ptimf" path="res://Sprites/Dialogue/TempPortrait.png" id="2_rrfjh"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueResource.cs" id="3_xpc57"]
+
+[sub_resource type="Resource" id="Resource_6sm6m"]
+script = ExtResource("3_xpc57")
+speakerName = "Quest Giver"
+dialogue = "Hi can you get that key over there for me?"
+leftSpeakerImage = ExtResource("1_6gsi8")
+rightSpeakerImage = ExtResource("2_rrfjh")
+leftSpeaking = true
+
+[sub_resource type="Resource" id="Resource_es2gq"]
+script = ExtResource("3_xpc57")
+speakerName = "Player"
+dialogue = "Yeah sure I can do that."
+leftSpeakerImage = ExtResource("1_6gsi8")
+rightSpeakerImage = ExtResource("2_rrfjh")
+leftSpeaking = false
+
+[resource]
+script = ExtResource("1_5on3o")
+dialogues = [SubResource("Resource_6sm6m"), SubResource("Resource_es2gq")]
