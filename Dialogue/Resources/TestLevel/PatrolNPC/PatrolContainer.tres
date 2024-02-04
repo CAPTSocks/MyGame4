@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="DialogueContainer" load_steps=7 format=3 uid="uid://7g2rls2fms0b"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueContainer.cs" id="1_sgcym"]
+[ext_resource type="Texture2D" uid="uid://faoqi62ptimf" path="res://Sprites/Dialogue/TempPortrait.png" id="1_yrsi7"]
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="2_ywfqg"]
+[ext_resource type="Script" path="res://Scripts/Resources/Dialogue/DialogueResource.cs" id="3_2711j"]
+
+[sub_resource type="Resource" id="Resource_44rrj"]
+script = ExtResource("3_2711j")
+speakerName = "Patrol NPC"
+dialogue = "Hey im walking here!"
+leftSpeakerImage = ExtResource("1_yrsi7")
+rightSpeakerImage = ExtResource("2_ywfqg")
+leftSpeaking = true
+
+[sub_resource type="Resource" id="Resource_g73ik"]
+script = ExtResource("3_2711j")
+speakerName = "Player"
+dialogue = "Oh im sorry, I will get out of your way."
+leftSpeakerImage = ExtResource("1_yrsi7")
+rightSpeakerImage = ExtResource("2_ywfqg")
+leftSpeaking = false
+
+[resource]
+script = ExtResource("1_sgcym")
+dialogues = [SubResource("Resource_44rrj"), SubResource("Resource_g73ik")]

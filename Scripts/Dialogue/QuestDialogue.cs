@@ -19,6 +19,7 @@ public partial class QuestDialogue : Node
 	[Export]
 	private QuestProgress qp;	
 	private QuestStateEnum questState = QuestStateEnum.FirstInteraction;
+	private RichTextLabel pressEText;
 
 	enum QuestStateEnum
 	{
@@ -39,8 +40,9 @@ public partial class QuestDialogue : Node
 	{
 		SetProcess(false);
 		questState = (QuestStateEnum)qp.QuestProgressNum;
-
 		dm = GetTree().Root.GetNode<DialogueManagerResource>("TestScene/HUD/DialogueManager");
+		pressEText = GetParent().GetNode<RichTextLabel>("PressEText");
+		pressEText.Visible = false;
 	}
 
 	void OnBodyEntered(Node body)
@@ -50,11 +52,8 @@ public partial class QuestDialogue : Node
 		{
 			playerAccess = body;
 			playerInRange = true;
-			if (dm != null)
-			{
-				StartDialogue();
-			}
-			//SetProcess(true);
+			SetProcess(true);
+			pressEText.Visible = true; 
 		}
 	}
 
@@ -65,6 +64,7 @@ public partial class QuestDialogue : Node
 			playerInRange = false;
 			SetProcess(false);
 			interactedWith = false;
+			pressEText.Visible = false;
 		}
 	}
 

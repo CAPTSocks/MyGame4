@@ -1,6 +1,8 @@
-res://Dialogue/Resources/TestLevel/QuestNPC
-res://Sprites/Dialogue
 res://Sprites
+res://Sprites/Dialogue
+res://Dialogue/Resources/TestLevel/PatrolNPC
+res://Prefabs/NPC
+res://Dialogue/Resources/TestLevel/QuestNPC
 res://Prefabs
 res://Prefabs/Dialogue
 res://Dialogue/Resources

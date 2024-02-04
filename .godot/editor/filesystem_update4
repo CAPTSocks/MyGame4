@@ -1,12 +1,15 @@
 res://default_env.tres
 res://Levels/TestLevel.tscn
+res://Dialogue/Resources/TestLevel/PatrolNPC/PatrolContainer.tres
 res://Dialogue/Resources/TestLevel/QuestNPC/IntroDialogue.tres
 res://Dialogue/Resources/TestLevel/QuestNPC/QuestActiveDialogue.tres
 res://Dialogue/Resources/TestLevel/QuestNPC/TurnInQuest.tres
 res://Dialogue/Resources/TestLevel/QuestNPC/PostQuest.tres
 res://Dialogue/Resources/TestLevel/DialogueNPC/TestDialogue.tres
-res://Prefabs/HUD/DialogueManager.tscn
 res://Prefabs/QuestDialogueNode.tscn
+res://Prefabs/NPC/FollowNPC.tscn
+res://Prefabs/NPC/QuestNPC.tscn
+res://Prefabs/NPC/PatrolNPC.tscn
 res://Scripts/ArrowProjectile.cs
 res://Scripts/CanChop.cs
 res://Scripts/DartTrap.cs
@@ -50,4 +53,4 @@ res://Scripts/Resources/Dialogue/DialogueContainer.cs
 res://Scripts/Resources/Dialogue/DialogueResource.cs
 res://Scripts/Resources/Dialogue/QuestDialogue/QuestProgress.cs
 res://Scripts/UpdateHealthBar.cs
-res://Dialogue/Resources/TestLevel/QuestNPC/KeyQuestProgress.tres
+res://Prefabs/Player/Player.tscn

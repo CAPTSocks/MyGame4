@@ -1,19 +1,12 @@
-[gd_scene load_steps=59 format=3 uid="uid://cikgtnng8s3ul"]
+[gd_scene load_steps=53 format=3 uid="uid://cikgtnng8s3ul"]
 
 [ext_resource type="PackedScene" uid="uid://dawayf21vi3cj" path="res://Prefabs/Player/Player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://c2a324mncxhqy" path="res://Prefabs/Player/PlayerHealth.tscn" id="2"]
 [ext_resource type="Script" path="res://Scripts/HUD.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://b1crhuj0212vj" path="res://Sprites/HealthBar/BackGround.png" id="4"]
-[ext_resource type="Resource" uid="uid://m5u1w0nuvfmu" path="res://Dialogue/Resources/TestLevel/QuestNPC/IntroDialogue.tres" id="5_1h5tk"]
-[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="6"]
-[ext_resource type="Resource" uid="uid://mrefnaqrc5wg" path="res://Dialogue/Resources/TestLevel/QuestNPC/QuestActiveDialogue.tres" id="6_vab1i"]
 [ext_resource type="PackedScene" uid="uid://cfr1e24oqt4sw" path="res://Prefabs/Items/Crate.tscn" id="7"]
-[ext_resource type="Resource" uid="uid://ypf313kj0k7r" path="res://Dialogue/Resources/TestLevel/QuestNPC/TurnInQuest.tres" id="7_02y5j"]
 [ext_resource type="Texture2D" uid="uid://v7cq04pwjtmx" path="res://Sprites/TileMaps/Dungeon_Tileset.png" id="8"]
-[ext_resource type="Resource" uid="uid://c7ju4jixsvfpx" path="res://Dialogue/Resources/TestLevel/QuestNPC/PostQuest.tres" id="8_68mj4"]
 [ext_resource type="Script" path="res://Scripts/GM/GM.cs" id="9"]
-[ext_resource type="Resource" uid="uid://c5ou73ovdg7se" path="res://Dialogue/Resources/TestLevel/QuestNPC/KeyQuestProgress.tres" id="9_krh83"]
-[ext_resource type="PackedScene" uid="uid://conlebbeyj5r3" path="res://Prefabs/QuestDialogueNode.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://dotggxyx7fw6j" path="res://Prefabs/HUD/DialogueManager.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://iu11webbndal" path="res://Prefabs/HUD/PauseMenu.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://Prefabs/Items/QuestPickup.tscn" id="15"]
@@ -21,15 +14,17 @@
 [ext_resource type="PackedScene" path="res://Prefabs/SceneChanger.tscn" id="18"]
 [ext_resource type="PackedScene" uid="uid://dchej8an55skk" path="res://Prefabs/Obsticles/ChoppableTree.tscn" id="19"]
 [ext_resource type="Texture2D" uid="uid://mh2s8obe0io5" path="res://Sprites/HealthBar/EnergyBar.png" id="20"]
+[ext_resource type="Resource" uid="uid://7g2rls2fms0b" path="res://Dialogue/Resources/TestLevel/PatrolNPC/PatrolContainer.tres" id="20_hkan5"]
 [ext_resource type="Texture2D" uid="uid://bseogvo7vjev4" path="res://Sprites/HealthBar/RedBar.png" id="21"]
 [ext_resource type="Texture2D" uid="uid://d01skowg5qbfi" path="res://Sprites/HealthBar/HalfBar.png" id="22"]
 [ext_resource type="Texture2D" uid="uid://ct1t7w48o0oll" path="res://Sprites/HealthBar/LowBar.png" id="23"]
 [ext_resource type="Texture2D" uid="uid://d2u11vurue2t7" path="res://Sprites/HealthBar/FullBar.png" id="24"]
 [ext_resource type="Script" path="res://Scripts/UpdateHealthBar.cs" id="25"]
-[ext_resource type="PackedScene" path="res://Prefabs/NPC/PatrolNPC.tscn" id="26"]
+[ext_resource type="PackedScene" uid="uid://bp7j4ua38eyja" path="res://Prefabs/NPC/PatrolNPC.tscn" id="26"]
 [ext_resource type="PackedScene" path="res://Prefabs/Obsticles/DartTrap.tscn" id="27"]
 [ext_resource type="PackedScene" uid="uid://bkdna0nh2wkbh" path="res://Collectibles/Collectible.tscn" id="28"]
 [ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterStarter.tscn" id="29"]
+[ext_resource type="PackedScene" uid="uid://cmqc3pdlv52l1" path="res://Prefabs/NPC/QuestNPC.tscn" id="29_ptwi4"]
 [ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterRunner.tscn" id="30"]
 [ext_resource type="PackedScene" uid="uid://cx2gcj6kwx6va" path="res://Prefabs/Dialogue/dialogue_npc.tscn" id="30_cibdd"]
 [ext_resource type="Script" path="res://Scripts/GM/Combat/EnemySpawnInfo.cs" id="31"]
@@ -539,9 +534,6 @@ sources/7 = SubResource("TileSetAtlasSource_17kjf")
 sources/8 = SubResource("TileSetAtlasSource_8o85b")
 sources/9 = SubResource("TileSetAtlasSource_4j3ek")
 
-[sub_resource type="CircleShape2D" id="8"]
-radius = 84.237
-
 [sub_resource type="Animation" id="10"]
 length = 2.0
 step = 1.0
@@ -585,24 +577,6 @@ editor_draw_screen = false
 
 [node name="GM" type="Node2D" parent="."]
 script = ExtResource("9")
-
-[node name="QuestNPC" type="Node2D" parent="."]
-position = Vector2(157.892, 460.331)
-
-[node name="Sprite2D" type="Sprite2D" parent="QuestNPC"]
-modulate = Color(0, 1, 0.180392, 1)
-texture = ExtResource("6")
-
-[node name="InteractebleArea" type="Area2D" parent="QuestNPC"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestNPC/InteractebleArea"]
-position = Vector2(1.39667, 0)
-shape = SubResource("8")
-
-[node name="QuestDialogue" parent="QuestNPC" instance=ExtResource("11")]
-questItemName = "QuestItem"
-questDialogues = [ExtResource("5_1h5tk"), ExtResource("6_vab1i"), ExtResource("7_02y5j"), ExtResource("8_68mj4")]
-qp = ExtResource("9_krh83")
 
 [node name="DoorKey" parent="." instance=ExtResource("15")]
 position = Vector2(602.899, 115.863)
@@ -774,6 +748,7 @@ position = Vector2(636.372, 400.862)
 [node name="PatrolNPC" parent="Waypoints" instance=ExtResource("26")]
 position = Vector2(631.806, 158.301)
 waypoints = PackedVector2Array(600, 410, 360, 410, 360, 160, 600, 160)
+dialogueContainer = ExtResource("20_hkan5")
 
 [node name="Traps" type="Node2D" parent="."]
 
@@ -885,8 +860,9 @@ position = Vector2(784, 447)
 [node name="NewDialogueNode" parent="DialogueNPC" index="2"]
 dialogueContainer = ExtResource("33_rn4mb")
 
-[connection signal="body_entered" from="QuestNPC/InteractebleArea" to="QuestNPC/QuestDialogue" method="OnBodyEntered"]
-[connection signal="body_exited" from="QuestNPC/InteractebleArea" to="QuestNPC/QuestDialogue" method="OnBodyExited"]
+[node name="QuestNPC" parent="." instance=ExtResource("29_ptwi4")]
+position = Vector2(165, 438)
+
 [connection signal="EnergyChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_EnergyChanged"]
 [connection signal="HealthChanged" from="Player/Health" to="HUD/HealthBar" method="_on_Health_HealthChanged"]
 [connection signal="PlayerDead" from="Player/Health" to="HUD" method="_on_Health_PlayerDead"]
@@ -900,3 +876,4 @@ dialogueContainer = ExtResource("33_rn4mb")
 [editable path="WoodenAxe"]
 [editable path="Crate"]
 [editable path="DialogueNPC"]
+[editable path="QuestNPC"]

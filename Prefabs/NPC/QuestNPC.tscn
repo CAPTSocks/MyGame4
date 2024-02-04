@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmqc3pdlv52l1"]
+
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="1_yajvd"]
+[ext_resource type="PackedScene" uid="uid://conlebbeyj5r3" path="res://Prefabs/QuestDialogueNode.tscn" id="2_ehima"]
+[ext_resource type="Resource" uid="uid://m5u1w0nuvfmu" path="res://Dialogue/Resources/TestLevel/QuestNPC/IntroDialogue.tres" id="3_vdygi"]
+[ext_resource type="Resource" uid="uid://mrefnaqrc5wg" path="res://Dialogue/Resources/TestLevel/QuestNPC/QuestActiveDialogue.tres" id="4_xrpfb"]
+[ext_resource type="Resource" uid="uid://ypf313kj0k7r" path="res://Dialogue/Resources/TestLevel/QuestNPC/TurnInQuest.tres" id="5_7pfw6"]
+[ext_resource type="Resource" uid="uid://c7ju4jixsvfpx" path="res://Dialogue/Resources/TestLevel/QuestNPC/PostQuest.tres" id="6_kqm07"]
+[ext_resource type="Resource" uid="uid://djmvllfywnc7g" path="res://Dialogue/Resources/TestLevel/QuestNPC/KeyQuestProgress.tres" id="7_yofis"]
+
+[sub_resource type="CircleShape2D" id="8"]
+radius = 84.237
+
+[node name="QuestNPC" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.180392, 1)
+texture = ExtResource("1_yajvd")
+
+[node name="InteractebleArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractebleArea"]
+position = Vector2(1.39667, 0)
+shape = SubResource("8")
+
+[node name="QuestDialogue" parent="." instance=ExtResource("2_ehima")]
+questItemName = "QuestItem"
+questDialogues = [ExtResource("3_vdygi"), ExtResource("4_xrpfb"), ExtResource("5_7pfw6"), ExtResource("6_kqm07")]
+qp = ExtResource("7_yofis")
+
+[node name="PressEText" type="RichTextLabel" parent="."]
+offset_left = -29.0
+offset_top = -53.0
+offset_right = 29.0
+offset_bottom = -32.0
+text = "Press E"
+scroll_active = false
+
+[connection signal="body_entered" from="InteractebleArea" to="QuestDialogue" method="OnBodyEntered"]
+[connection signal="body_exited" from="InteractebleArea" to="QuestDialogue" method="OnBodyExited"]

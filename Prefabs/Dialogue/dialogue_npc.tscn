@@ -21,5 +21,19 @@ shape = SubResource("8")
 
 [node name="NewDialogueNode" parent="." instance=ExtResource("2_gn46p")]
 
+[node name="PressEText" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.168
+offset_top = -53.274
+offset_right = 38.832
+offset_bottom = -30.274
+grow_horizontal = 2
+text = "Press E"
+scroll_active = false
+autowrap_mode = 0
+
 [connection signal="body_entered" from="InteractebleArea" to="NewDialogueNode" method="OnBodyEntered"]
 [connection signal="body_exited" from="InteractebleArea" to="NewDialogueNode" method="OnBodyExited"]

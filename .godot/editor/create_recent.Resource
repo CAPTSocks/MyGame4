@@ -1,5 +1,5 @@
-QuestProgress
-Resource
 DialogueContainer
 DialogueResource
+QuestProgress
+Resource
 CollectibleResource
