@@ -1,5 +1,7 @@
+Waves
+EncounterWave
+Resource
 DialogueContainer
 DialogueResource
 QuestProgress
-Resource
 CollectibleResource

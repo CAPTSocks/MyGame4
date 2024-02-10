@@ -34,8 +34,8 @@ public partial class CombatStarter : Node
 		//Get the screen size for the walls
 		var screenSize = (Vector2)DisplayServer.ScreenGetSize();
 		screenSize *= cam.Zoom;
-		float xPos = screenSize.X / 2;
-		float yPos = screenSize.Y / 2;
+		float xPos = screenSize.X / 6;
+		float yPos = screenSize.Y / 6;
 
 		//Place the walls on the edge of the screen
 		leftWall.Position = new Vector2(-xPos, 0);
@@ -64,7 +64,7 @@ public partial class CombatStarter : Node
 		playersRemote.RemotePath = playersCamPath;
 		this.QueueFree();
 
-				leftWall.GetNode<CollisionShape2D>("LeftWallCol").SetDeferred("disabled", true);
+		leftWall.GetNode<CollisionShape2D>("LeftWallCol").SetDeferred("disabled", true);
 		rightWall.GetNode<CollisionShape2D>("RightWallCol").SetDeferred("disabled", true);
 		topWall.GetNode<CollisionShape2D>("TopWallCol").SetDeferred("disabled", true);
 		bottomWall.GetNode<CollisionShape2D>("BottomWallCol").SetDeferred("disabled", true);

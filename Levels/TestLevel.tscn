@@ -20,14 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://ct1t7w48o0oll" path="res://Sprites/HealthBar/LowBar.png" id="23"]
 [ext_resource type="Texture2D" uid="uid://d2u11vurue2t7" path="res://Sprites/HealthBar/FullBar.png" id="24"]
 [ext_resource type="Script" path="res://Scripts/UpdateHealthBar.cs" id="25"]
+[ext_resource type="Resource" uid="uid://cvrypgf8xnfv2" path="res://Dialogue/Resources/TestLevel/Encounters/TestEncounter/TestWaves.tres" id="25_6lanp"]
 [ext_resource type="PackedScene" uid="uid://bp7j4ua38eyja" path="res://Prefabs/NPC/PatrolNPC.tscn" id="26"]
 [ext_resource type="PackedScene" path="res://Prefabs/Obsticles/DartTrap.tscn" id="27"]
 [ext_resource type="PackedScene" uid="uid://bkdna0nh2wkbh" path="res://Collectibles/Collectible.tscn" id="28"]
-[ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterStarter.tscn" id="29"]
+[ext_resource type="PackedScene" uid="uid://dvqfpkvsfgn6v" path="res://Prefabs/Combat/EncounterStarter.tscn" id="29"]
 [ext_resource type="PackedScene" uid="uid://cmqc3pdlv52l1" path="res://Prefabs/NPC/QuestNPC.tscn" id="29_ptwi4"]
-[ext_resource type="PackedScene" path="res://Prefabs/Combat/EncounterRunner.tscn" id="30"]
+[ext_resource type="PackedScene" uid="uid://dswwun8r4wwfx" path="res://Prefabs/Combat/EncounterRunner.tscn" id="30"]
 [ext_resource type="PackedScene" uid="uid://cx2gcj6kwx6va" path="res://Prefabs/Dialogue/dialogue_npc.tscn" id="30_cibdd"]
-[ext_resource type="Script" path="res://Scripts/GM/Combat/EnemySpawnInfo.cs" id="31"]
 [ext_resource type="PackedScene" uid="uid://bvspmu7yryf1y" path="res://Prefabs/Enemies/AvoidEnemy.tscn" id="32"]
 [ext_resource type="Resource" uid="uid://dn8atwhw0nmrk" path="res://Dialogue/Resources/TestLevel/DialogueNPC/TestDialogue.tres" id="33_rn4mb"]
 
@@ -568,6 +568,7 @@ layer_0/tile_data = PackedInt32Array(-655360, 6, 0, -655359, 1, 0, -655358, 1, 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(606, 284)
+position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 drag_left_margin = 0.3
 drag_top_margin = 0.3
@@ -799,46 +800,7 @@ id = 1
 position = Vector2(1871.18, -222.685)
 
 [node name="EncounterRunner" parent="Encounters/TestEncounter " instance=ExtResource("30")]
-
-[node name="Waves" type="Node" parent="Encounters/TestEncounter /EncounterRunner"]
-
-[node name="Wave0" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves"]
-
-[node name="EnemyToSpawnInfo" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave0"]
-script = ExtResource("31")
-
-[node name="EnemyToSpawnInfo2" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave0"]
-script = ExtResource("31")
-spawner = 1
-
-[node name="EnemyToSpawnInfo3" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave0"]
-script = ExtResource("31")
-spawner = 2
-
-[node name="Wave1" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves"]
-
-[node name="EnemyToSpawnInfo" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave1"]
-script = ExtResource("31")
-
-[node name="EnemyToSpawnInfo2" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave1"]
-script = ExtResource("31")
-enemyType = 1
-spawner = 1
-
-[node name="Wave2" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves"]
-
-[node name="EnemyToSpawnInfo" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave2"]
-script = ExtResource("31")
-
-[node name="EnemyToSpawnInfo2" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave2"]
-script = ExtResource("31")
-enemyType = 1
-spawner = 1
-
-[node name="EnemyToSpawnInfo3" type="Node" parent="Encounters/TestEncounter /EncounterRunner/Waves/Wave2"]
-script = ExtResource("31")
-enemyType = 2
-spawner = 2
+wavesResource = ExtResource("25_6lanp")
 
 [node name="AvoidEnemy" parent="." instance=ExtResource("32")]
 position = Vector2(1022.73, -360.416)

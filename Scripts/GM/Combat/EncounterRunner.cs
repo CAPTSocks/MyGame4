@@ -24,6 +24,11 @@ public partial class EncounterRunner : Node
     public Array<Array<EnemySpawnInfo>> enemiesToSpawnListG = new Array<Array<EnemySpawnInfo>>();
     private Camera2D mainCam;
 
+    //Resources
+    [Export]
+    private Waves wavesResource;
+    private EncounterWave currentWave;
+
     public override void _Ready()
     {
         topLeftSpawn = GetNode<Node2D>("TopLeftSpawner");
@@ -51,8 +56,8 @@ public partial class EncounterRunner : Node
         if (!verticalEncounter)
         {
             //Place spawners for horizontal encounter
-            float x = screenSize.X / 2 - 55;
-            float y = screenSize.Y / 4;
+            float x = screenSize.X / 4 - 100;
+            float y = screenSize.Y / 7;
 
             topLeftSpawn.Position = new Vector2(-x, -y);
             bottomLeftSpawn.Position = new Vector2(-x, y);
@@ -74,29 +79,31 @@ public partial class EncounterRunner : Node
 
     public void getEnemyWaves()
     {
-        var wavesChild = GetNode<Node>("Waves");
-        var children = wavesChild.GetChildren();
-        for (int i = 0; i < children.Count; i++)
-        {
-            var wave = (Node)children[i];
-            var waveChildren = wave.GetChildren();
-            for (int j = 0; j < waveChildren.Count; j++)
-            {
-                preListg.Add((EnemySpawnInfo)waveChildren[j]);
-                if (j == waveChildren.Count - 1)
-                {
-                    enemiesToSpawnListG.Add(preListg);
-                    preListg = new Array<EnemySpawnInfo>();
-                }
-            }
-        }
+        currentWave = wavesResource.wave[waveCounter];
+        numOfWaves = wavesResource.wave.Count - 1;
+        // var wavesChild = GetNode<Node>("Waves");
+        // var children = wavesChild.GetChildren();
+        // for (int i = 0; i < children.Count; i++)
+        // {
+        //     var wave = (Node)children[i];
+        //     var waveChildren = wave.GetChildren();
+        //     for (int j = 0; j < waveChildren.Count; j++)
+        //     {
+        //         preListg.Add((EnemySpawnInfo)waveChildren[j]);
+        //         if (j == waveChildren.Count - 1)
+        //         {
+        //             enemiesToSpawnListG.Add(preListg);
+        //             preListg = new Array<EnemySpawnInfo>();
+        //         }
+        //     }
+        // }
     }
 
     public void StartEncounter()
     {
         encounterStarted = true;
         stillSpawning = true;
-        waveEnemiesToSpawnG = enemiesToSpawnListG[waveCounter];
+      //  waveEnemiesToSpawnG = enemiesToSpawnListG[waveCounter];
 
         SpawnEnemies();
     }
@@ -108,7 +115,9 @@ public partial class EncounterRunner : Node
         enemySpawnCounter = 0;
 
         //Change the enemies to spawn to the new wave of enemies
-        waveEnemiesToSpawnG = enemiesToSpawnListG[waveCounter];
+       // waveEnemiesToSpawnG = enemiesToSpawnListG[waveCounter];
+       currentWave = wavesResource.wave[waveCounter];
+
         stillSpawning = true;
 
         //Spawn the next enemy after the timer ends
@@ -129,26 +138,47 @@ public partial class EncounterRunner : Node
 
     public void SpawnEnemies()
     {
-        if (enemySpawnCounter < waveEnemiesToSpawnG.Count)
+        if (enemySpawnCounter < currentWave.enemiesTypesToSpawn.Count)
         {
-
-            var newEnemy = waveEnemiesToSpawnG[enemySpawnCounter];
-            var enemyScene = (PackedScene)GD.Load(enemyPathList[newEnemy.enemyType]);
-            var enemyInstance = (BaseEnemy)enemyScene.Instantiate();
-            enemyInstance.GlobalPosition = spawnerList[newEnemy.spawner].GlobalPosition;
-            GetTree().CurrentScene.AddChild(enemyInstance);
-
-            aliveEnemies.Add(enemyInstance);
-            enemyInstance.Connect("enemyDied",new Callable(this,nameof(EnemyDied)));
+            EnemyWaveInfo newEnemy = currentWave.enemiesTypesToSpawn[enemySpawnCounter];
+            int enemyType = (int)newEnemy.enemyType;
+            PackedScene enemyScene = (PackedScene)GD.Load(enemyPathList[enemyType]);
+            BaseEnemy newEnemyInstance = (BaseEnemy)enemyScene.Instantiate();
+            newEnemyInstance.GlobalPosition = spawnerList[(int)newEnemy.spawnLocation].GlobalPosition;
+            GetTree().CurrentScene.AddChild(newEnemyInstance);
+            
+            aliveEnemies.Add(newEnemyInstance);
+            newEnemyInstance.Connect("enemyDied",new Callable(this,nameof(EnemyDied)));
             enemySpawnCounter++;
-
-            encounterTimer.Start(newEnemy.spawnDelay);
+            encounterTimer.Start(newEnemy.nextEnemySpawnDelay);
         }
         else
         {
             stillSpawning = false;
-            encounterTimer.Stop();
+            encounterTimer.Stop(); 
         }
+
+
+        // if (enemySpawnCounter < waveEnemiesToSpawnG.Count)
+        // {
+
+        //     var newEnemy = waveEnemiesToSpawnG[enemySpawnCounter];
+        //     var enemyScene = (PackedScene)GD.Load(enemyPathList[newEnemy.enemyType]);
+        //     var enemyInstance = (BaseEnemy)enemyScene.Instantiate();
+        //     enemyInstance.GlobalPosition = spawnerList[newEnemy.spawner].GlobalPosition;
+        //     GetTree().CurrentScene.AddChild(enemyInstance);
+
+        //     aliveEnemies.Add(enemyInstance);
+        //     enemyInstance.Connect("enemyDied",new Callable(this,nameof(EnemyDied)));
+        //     enemySpawnCounter++;
+
+        //     encounterTimer.Start(newEnemy.spawnDelay);
+        // }
+        // else
+        // {
+        //     stillSpawning = false;
+        //     encounterTimer.Stop();
+        // }
     }
 
     public void EnemyDied(CharacterBody2D deadEnemy)

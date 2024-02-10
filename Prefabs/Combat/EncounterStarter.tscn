@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dvqfpkvsfgn6v"]
 
-[ext_resource path="res://Scripts/GM/Combat/CombatStarter.cs" type="Script" id=1]
+[ext_resource type="Script" path="res://Scripts/GM/Combat/CombatStarter.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="2_5osie"]
 
-[sub_resource type="RectangleShape2D" id=1]
-size = Vector2( 4.22738, 155.26 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(4.22738, 155.26)
 
-[sub_resource type="RectangleShape2D" id=2]
-size = Vector2( 379.513, 5.84076 )
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(379.513, 5.84076)
 
 [node name="EncounterStarter" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="CameraTarget" type="Node2D" parent="."]
 
@@ -24,15 +25,20 @@ shape = SubResource( 1 )
 
 [node name="LeftWallCol" type="CollisionShape2D" parent="LeftWall"]
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource("2")
 disabled = true
 one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWall"]
+position = Vector2(-0.5, -1.5)
+scale = Vector2(0.203125, 5.89063)
+texture = ExtResource("2_5osie")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 
 [node name="RightWallCol" type="CollisionShape2D" parent="RightWall"]
 rotation = -1.5708
-shape = SubResource( 2 )
+shape = SubResource("2")
 disabled = true
 one_way_collision = true
 
@@ -40,19 +46,20 @@ one_way_collision = true
 
 [node name="TopWallCol" type="CollisionShape2D" parent="TopWall"]
 rotation = 3.14159
-shape = SubResource( 2 )
+shape = SubResource("2")
 disabled = true
 one_way_collision = true
 
 [node name="BottomWall" type="StaticBody2D" parent="."]
 
 [node name="BottomWallCol" type="CollisionShape2D" parent="BottomWall"]
-shape = SubResource( 2 )
+shape = SubResource("2")
 disabled = true
 one_way_collision = true
 
 [node name="StartupTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
 [connection signal="body_entered" from="DetectionArea" to="." method="PlayerDetected"]
 [connection signal="timeout" from="StartupTimer" to="." method="StarupTimerTimeout"]

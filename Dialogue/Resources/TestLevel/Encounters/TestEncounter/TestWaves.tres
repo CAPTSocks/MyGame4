@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="Waves" load_steps=12 format=3 uid="uid://cvrypgf8xnfv2"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/CombatEncounter/Waves.cs" id="1_eh8tc"]
+[ext_resource type="Script" path="res://Scripts/Resources/CombatEncounter/EnemyWaveInfo.cs" id="2_qyhbs"]
+[ext_resource type="Script" path="res://Scripts/Resources/CombatEncounter/EncounterWave.cs" id="3_w18wa"]
+
+[sub_resource type="Resource" id="Resource_4wdyg"]
+script = ExtResource("2_qyhbs")
+spawnLocation = 0
+enemyType = 0
+nextEnemySpawnDelay = 1.0
+
+[sub_resource type="Resource" id="Resource_bnfde"]
+script = ExtResource("2_qyhbs")
+spawnLocation = 1
+enemyType = 0
+nextEnemySpawnDelay = 1.0
+
+[sub_resource type="Resource" id="Resource_e7o10"]
+script = ExtResource("2_qyhbs")
+spawnLocation = 2
+enemyType = 1
+nextEnemySpawnDelay = 1.0
+
+[sub_resource type="Resource" id="Resource_nfxgg"]
+script = ExtResource("3_w18wa")
+enemiesTypesToSpawn = [SubResource("Resource_4wdyg"), SubResource("Resource_bnfde"), SubResource("Resource_e7o10")]
+
+[sub_resource type="Resource" id="Resource_74hrm"]
+script = ExtResource("2_qyhbs")
+spawnLocation = 3
+enemyType = 0
+nextEnemySpawnDelay = 1.0
+
+[sub_resource type="Resource" id="Resource_rr8ta"]
+script = ExtResource("2_qyhbs")
+spawnLocation = 1
+enemyType = 1
+nextEnemySpawnDelay = 1.0
+
+[sub_resource type="Resource" id="Resource_ew0qq"]
+script = ExtResource("2_qyhbs")
+spawnLocation = 0
+enemyType = 1
+nextEnemySpawnDelay = 1.0
+
+[sub_resource type="Resource" id="Resource_oh43s"]
+script = ExtResource("3_w18wa")
+enemiesTypesToSpawn = [SubResource("Resource_74hrm"), SubResource("Resource_rr8ta"), SubResource("Resource_ew0qq")]
+
+[resource]
+script = ExtResource("1_eh8tc")
+wave = [SubResource("Resource_nfxgg"), SubResource("Resource_oh43s")]
