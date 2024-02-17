@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu0gnss2cvk33"]
+
+[ext_resource type="Script" path="res://Scripts/Obsticles/RollingRock.cs" id="1_u1ljw"]
+[ext_resource type="Texture2D" uid="uid://b0117dqlbveoc" path="res://Sprites/icon.png" id="2_dgtoi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egc7w"]
+radius = 31.0161
+
+[node name="RollingRock" type="CharacterBody2D"]
+script = ExtResource("1_u1ljw")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_dgtoi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_egc7w")

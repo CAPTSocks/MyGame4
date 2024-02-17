@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4w2jw6ov646u"]
+
+[ext_resource type="Script" path="res://Scripts/Obsticles/RollingRockTrap.cs" id="1_p5y0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5bmr"]
+size = Vector2(134, 16)
+
+[node name="RollingRockTrap" type="Node2D"]
+script = ExtResource("1_p5y0i")
+
+[node name="RockSpawnPoint" type="Node2D" parent="."]
+
+[node name="SpawnTriggerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnTriggerArea"]
+shape = SubResource("RectangleShape2D_h5bmr")
+
+[connection signal="body_entered" from="SpawnTriggerArea" to="." method="OnBodyEntered"]

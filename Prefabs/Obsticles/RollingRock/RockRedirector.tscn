@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dideutg7urdpy"]
+
+[ext_resource type="Script" path="res://RockRedirector.cs" id="1_henmc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivyfu"]
+size = Vector2(65, 20)
+
+[node name="RockRedirector" type="Node2D"]
+script = ExtResource("1_henmc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ivyfu")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

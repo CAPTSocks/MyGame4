@@ -1,3 +1,6 @@
+res://Prefabs/Obsticles
+res://Sprites/TileMaps
+res://Prefabs/Obsticles/RollingRock
 res://Sprites
 res://Dialogue/Resources/TestLevel/Encounters/TestEncounter
 res://Scripts/Resources/CombatEncounter

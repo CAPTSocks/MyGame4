@@ -15,13 +15,13 @@ public partial class EncounterRunner : Node
     [Export]
     private Array<string> enemyPathList = new Array<string>();
     //private List<EnemySpawnInfo> waveEnemiesToSpawn = new List<EnemySpawnInfo>();
-    private Godot.Collections.Array<EnemySpawnInfo> waveEnemiesToSpawnG = new Array<EnemySpawnInfo>();
+    //private Godot.Collections.Array<EnemySpawnInfo> waveEnemiesToSpawnG = new Array<EnemySpawnInfo>();
     private List<Node2D> spawnerList = new List<Node2D>();
     private List<BaseEnemy> aliveEnemies = new List<BaseEnemy>();
    // public List<EnemySpawnInfo> preList = new List<EnemySpawnInfo>();
-    public Array<EnemySpawnInfo> preListg = new Array<EnemySpawnInfo>();
+   // public Array<EnemySpawnInfo> preListg = new Array<EnemySpawnInfo>();
    // public List<List<EnemySpawnInfo>> enemiesToSpawnList = new List<List<EnemySpawnInfo>>();
-    public Array<Array<EnemySpawnInfo>> enemiesToSpawnListG = new Array<Array<EnemySpawnInfo>>();
+   // public Array<Array<EnemySpawnInfo>> enemiesToSpawnListG = new Array<Array<EnemySpawnInfo>>();
     private Camera2D mainCam;
 
     //Resources

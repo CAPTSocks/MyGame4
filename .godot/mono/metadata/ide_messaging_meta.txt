@@ -1,2 +1,2 @@
-﻿8296
-C:/Users/WyatH/Documents/Godot/Godot_v4.1.1-stable_mono_win64/Godot4.1.exe
+﻿10467
+C:/Users/WyatH/Documents/Godot/Godot_v4.2.1-stable_mono_win64/Godot_v4.2.1-stable_mono_win64.exe
